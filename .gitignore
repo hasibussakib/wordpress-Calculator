@@ -3,3 +3,10 @@ dist
 dist-server
 .DS_Store
 *.local
+*.zip
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+batterysizing/download.html
+batterysizing/serve-preview.mjs
+batterysizing/Batterysizing-WordPress-Theme.zip

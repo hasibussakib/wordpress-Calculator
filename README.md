@@ -1,10 +1,21 @@
 # BatterySizing.xyz
 
-A React + TypeScript + Vite + Tailwind site for BatterySizing.xyz — a battery
-calculator and sizing platform with 12 calculators, guides, and reference
-pages.
+Battery calculator and sizing platform — 12 calculators, guides, and reference
+pages. This repo now ships an installable **WordPress theme** in `batterysizing/`
+(the original React + Vite + Tailwind configs remain at the repo root).
 
-## Setup
+## WordPress theme
+
+Folder: [`batterysizing/`](batterysizing/) · details: [`THEME.md`](THEME.md)
+
+1. Zip the `batterysizing` folder (or copy it into `wp-content/themes/`).
+2. WordPress admin → **Appearance → Themes → Add New → Upload Theme** → Activate.
+3. **Appearance → Batterysizing Setup → Import demo content**.
+
+That creates every calculator, guide, FAQ, About, Contact, Privacy and Terms
+page, assigns menus, and sets the static front page.
+
+## React app setup (original)
 
 ```bash
 npm install

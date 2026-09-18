@@ -1,0 +1,25 @@
+/*
+Theme Name: Batterysizing
+Theme URI: https://batterysizing.xyz/
+Author: BatterySizing.xyz
+Author URI: https://batterysizing.xyz/
+Description: A complete battery calculator and sizing theme for WordPress. Ships with 12 interactive battery calculators (runtime, capacity, backup, bank, solar, UPS, 12V, 24V/48V, LiFePO4, Ah↔Wh), an appliance load estimator with a live SVG chart, a what-if runtime comparison, guides, FAQ and legal pages — all importable in one click from Appearance → Batterysizing Setup. Built with Tailwind CSS, no page builder required.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.8
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: batterysizing
+Tags: education, one-column, custom-menu, custom-logo, featured-images, theme-options, translation-ready
+*/
+
+/*
+ * This file intentionally holds only the theme header.
+ *
+ * Actual styles are enqueued from:
+ *  - assets/css/tailwind.css  (compiled Tailwind utility layer)
+ *  - assets/css/theme.css     (custom components: cards, inputs, charts...)
+ *
+ * See README-THEME.md in the project root for build instructions.
+ */
