@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Battery Calculator &amp; Battery Life Calculator | BatterySizing.xyz</title>
+  <meta name="description" content="Free battery calculator and battery life calculator tools for runtime, capacity, backup time, energy, battery banks, solar systems, and more.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body>
+<a class="bs-skip" href="#main">Skip to content</a>
+<header class="bs-header" id="top">
+  <div class="bs-container bs-header-inner">
+    <a class="bs-logo" href="#top">
+      <span class="bs-logo-mark" aria-hidden="true">
+        <svg class="bs-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12.8 7 9.6 12.6h2.6L11.4 17l3.4-5.6h-2.6z" fill="currentColor" stroke="none"/></svg>
+      </span>
+      <span class="bs-logo-word">BatterySizing</span><span class="bs-logo-tld">.xyz</span>
+    </a>
+    <nav class="bs-nav" aria-label="Primary">
+      <button class="bs-nav-toggle" type="button" aria-expanded="false" aria-controls="bs-nav-panel" data-bs-nav-toggle>
+        <span class="bs-nav-toggle-open"><svg class="bs-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></span>
+        <span class="bs-nav-toggle-close"><svg class="bs-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+      </button>
+      <div class="bs-nav-panel" id="bs-nav-panel">
+        <ul class="bs-menu">
+          <li class="bs-menu-item"><a href="#calculators">Calculators</a></li>
+          <li class="bs-menu-item"><a href="#guides">Guides</a></li>
+          <li class="bs-menu-item"><a href="#faq">FAQ</a></li>
+          <li class="bs-menu-item"><a href="#estimator">Load estimator</a></li>
+        </ul>
+        <a class="bs-btn bs-btn-primary bs-nav-cta" href="#calculators">Open calculator</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="bs-main">
+
+<section class="bs-hero">
+  <div class="bs-container bs-hero-inner">
+    <div class="bs-hero-copy">
+      <p class="bs-pill">
+        <svg class="bs-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>
+        12 free calculators · no account
+      </p>
+      <h1>Battery Calculator &amp; Battery Life Calculator</h1>
+      <p class="bs-lede">Free battery calculator and battery life calculator tools for runtime, capacity, backup time, energy, battery banks, solar systems, and more.</p>
+      <div class="bs-hero-actions">
+        <a class="bs-btn bs-btn-primary bs-btn-lg" href="#calculators">Open battery calculator</a>
+        <a class="bs-btn bs-btn-ghost bs-btn-lg" href="#calculators">Browse all 12 tools</a>
+      </div>
+      <ul class="bs-hero-points">
+        <li>✓ Runtime, capacity, backup, banks, solar, UPS</li>
+        <li>✓ DoD + inverter efficiency built in</li>
+        <li>✓ 12V · 24V · 48V · LiFePO4</li>
+      </ul>
+    </div>
+    <div class="bs-hero-visual" aria-hidden="true">
+      <div class="bs-battery-art">
+        <div class="bs-battery-shell">
+          <div class="bs-battery-nub"></div>
+          <div class="bs-battery-body">
+            <div class="bs-battery-fill"></div>
+            <div class="bs-battery-bolt">
+              <svg class="bs-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="bs-float-card bs-float-card-a">
+          <span>Usable energy</span>
+          <strong>1,026 Wh</strong>
+          <small>12V 100Ah LiFePO4 · 90% DoD</small>
+        </div>
+        <div class="bs-float-card bs-float-card-b">
+          <span>Runtime @ 100W</span>
+          <strong>10h 16m</strong>
+          <small>vs 5h 06m lead-acid</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bs-section" id="calculators">
+  <div class="bs-container">
+    <header class="bs-section-head">
+      <p class="bs-kicker">Calculators</p>
+      <h2>Every battery question, one formula away</h2>
+      <p class="bs-lede">Runtime, capacity, backup, banks, solar, UPS, 12V / 24V / 48V, LiFePO4 and Ah↔Wh. Same math the original BatterySizing.xyz site shipped.</p>
+    </header>
+    <div class="bs-calc-grid" id="calc-grid"></div>
+  </div>
+</section>
+
+<section class="bs-section bs-section-muted" id="estimator">
+  <div class="bs-container">
+    <header class="bs-section-head">
+      <p class="bs-kicker">Step 1 — total the load</p>
+      <h2>Appliance Load Estimator</h2>
+      <p class="bs-lede">Add what you actually run. Totals update live — watts, daily watt-hours, and a chart of where the energy goes.</p>
+    </header>
+    <div class="bs-estimator" id="bs-estimator" data-presets='[{"name":"LED bulb","watts":10},{"name":"Ceiling fan","watts":75},{"name":"Refrigerator (average)","watts":150},{"name":"LED TV 32–55\"","watts":80},{"name":"Laptop","watts":65},{"name":"WiFi router","watts":10},{"name":"Rice cooker","watts":700},{"name":"AC 1 ton (inverter, avg)","watts":800}]'>
+      <div class="bs-estimator-table-wrap">
+        <table class="bs-estimator-table">
+          <thead>
+            <tr>
+              <th>Appliance</th><th>Watts</th><th>Hours / day</th><th>Qty</th><th>Wh / day</th><th></th>
+            </tr>
+          </thead>
+          <tbody data-rows></tbody>
+        </table>
+        <div class="bs-estimator-actions">
+          <button type="button" class="bs-btn bs-btn-ghost" data-add-row>+ Add appliance</button>
+          <label class="bs-preset-label">
+            <span>Quick add</span>
+            <select data-preset>
+              <option value="">Choose a preset…</option>
+              <option value="LED bulb|10">LED bulb · 10W</option>
+              <option value="Ceiling fan|75">Ceiling fan · 75W</option>
+              <option value="Refrigerator (average)|150">Refrigerator · 150W</option>
+              <option value="LED TV|80">LED TV · 80W</option>
+              <option value="Laptop|65">Laptop · 65W</option>
+              <option value="Rice cooker|700">Rice cooker · 700W</option>
+              <option value="AC 1 ton|800">AC 1 ton · 800W</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="bs-estimator-side">
+        <div class="bs-stat-grid">
+          <div class="bs-stat"><span>Running load</span><strong data-total-w>0 W</strong></div>
+          <div class="bs-stat"><span>Daily energy</span><strong data-total-wh>0 Wh</strong></div>
+          <div class="bs-stat"><span>Peak simultaneous</span><strong data-peak-w>0 W</strong></div>
+        </div>
+        <div class="bs-chart-wrap">
+          <svg class="bs-chart" viewBox="0 0 240 240" data-chart></svg>
+          <ul class="bs-chart-legend" data-legend></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bs-section" id="whatif">
+  <div class="bs-container">
+    <header class="bs-section-head">
+      <p class="bs-kicker">Step 2 — compare batteries</p>
+      <h2>What-If Runtime Comparison</h2>
+      <p class="bs-lede">Same load, six common batteries. Lithium vs lead-acid stops being a slogan once you see the hours side by side.</p>
+    </header>
+    <div class="bs-whatif" id="bs-whatif" data-presets='[{"name":"12V 100Ah Lead-acid","voltage":12,"capacity":100,"dod":50,"chemistry":"lead"},{"name":"12V 200Ah Lead-acid","voltage":12,"capacity":200,"dod":50,"chemistry":"lead"},{"name":"12V 100Ah LiFePO4","voltage":12.8,"capacity":100,"dod":90,"chemistry":"lithium"},{"name":"24V 100Ah LiFePO4","voltage":25.6,"capacity":100,"dod":90,"chemistry":"lithium"},{"name":"48V 50Ah LiFePO4","voltage":51.2,"capacity":50,"dod":90,"chemistry":"lithium"},{"name":"48V 100Ah LiFePO4","voltage":51.2,"capacity":100,"dod":90,"chemistry":"lithium"}]'>
+      <div class="bs-whatif-controls">
+        <label>
+          <span>Load</span>
+          <div class="bs-input-unit"><input type="number" min="1" step="1" value="100" data-load><span>W</span></div>
+        </label>
+        <label>
+          <span>Inverter efficiency</span>
+          <div class="bs-input-unit"><input type="number" min="50" max="100" step="1" value="85" data-eff><span>%</span></div>
+        </label>
+      </div>
+      <div class="bs-whatif-bars" data-bars></div>
+    </div>
+  </div>
+</section>
+
+<section class="bs-section bs-section-muted" id="guides">
+  <div class="bs-container">
+    <header class="bs-section-head">
+      <p class="bs-kicker">Guides</p>
+      <h2>The bits the label does not tell you</h2>
+      <p class="bs-lede">Ah vs Wh, runtime, how many Ah you need, depth of discharge, chemistry and the formulas — in plain language.</p>
+    </header>
+    <div class="bs-guide-grid" id="guide-grid"></div>
+  </div>
+</section>
+
+<section class="bs-section" id="faq">
+  <div class="bs-container">
+    <header class="bs-section-head">
+      <p class="bs-kicker">FAQ</p>
+      <h2>Quick answers before you size anything</h2>
+    </header>
+    <div class="bs-faq" data-faq>
+      <details class="bs-faq-item" open>
+        <summary>How long will a 12V 100Ah battery last?<svg class="bs-icon bs-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="bs-faq-body"><p>It depends on the load and the chemistry. Usable energy is 12 × 100 × DoD. At 100W through an 85% inverter: lead-acid (50% DoD) lasts about 5.1 hours; LiFePO4 (90% DoD) lasts about 9.2 hours.</p></div>
+      </details>
+      <details class="bs-faq-item">
+        <summary>Ah vs Wh — which should I shop by?<svg class="bs-icon bs-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="bs-faq-body"><p>Watt-hours. Ah ignores voltage, so a 24V 50Ah battery (1,200Wh) stores the same energy as a 12V 100Ah. Convert both to Wh before you compare.</p></div>
+      </details>
+      <details class="bs-faq-item">
+        <summary>How many Ah do I need for a 4-hour backup?<svg class="bs-icon bs-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="bs-faq-body"><p>Required Ah = (watts × hours) ÷ (voltage × DoD × efficiency). A 300W load at 12V, 50% DoD, 85% inverter needs about 235Ah. Lithium at 90% DoD needs about 131Ah for the same job.</p></div>
+      </details>
+      <details class="bs-faq-item">
+        <summary>What depth of discharge should I use?<svg class="bs-icon bs-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="bs-faq-body"><p>Flooded lead-acid: 50%. AGM: 50–80%. Gel: 50–60%. LiFePO4: 80–100% (90% is a sensible default).</p></div>
+      </details>
+      <details class="bs-faq-item">
+        <summary>Is a 100Ah lithium battery really twice a 100Ah lead-acid?<svg class="bs-icon bs-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="bs-faq-body"><p>In usable energy, yes — roughly. Lead-acid gives you ~50% of the label; LiFePO4 gives you 90–100%, at higher round-trip efficiency.</p></div>
+      </details>
+      <details class="bs-faq-item">
+        <summary>12V, 24V or 48V — which system voltage?<svg class="bs-icon bs-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="bs-faq-body"><p>12V for small systems (cars, RVs, &lt;1 kWh). 24V for mid-size solar and boats. 48V for whole-home inverters and anything above ~5 kWh.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="bs-cta">
+  <div class="bs-container bs-cta-inner">
+    <div>
+      <p class="bs-kicker bs-kicker-light">Free, no account</p>
+      <h2>Size the battery. Then buy it.</h2>
+      <p>Open the all-in-one calculator, or start from the load estimator on this page. Either way you leave with a number, not a guess.</p>
+    </div>
+    <div class="bs-cta-actions">
+      <a class="bs-btn bs-btn-white bs-btn-lg" href="#calculators">Open battery calculator</a>
+      <a class="bs-btn bs-btn-ghost-light bs-btn-lg" href="#calculators">See all 12 tools</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="bs-footer">
+  <div class="bs-container">
+    <div class="bs-footer-grid">
+      <div class="bs-footer-brand">
+        <a class="bs-logo bs-logo-light" href="#top">
+          <span class="bs-logo-word">BatterySizing</span><span class="bs-logo-tld">.xyz</span>
+        </a>
+        <p>Free battery calculator and battery life calculator tools for runtime, capacity, backup time, energy, battery banks, solar systems, and more.</p>
+      </div>
+      <div>
+        <h3>Calculators</h3>
+        <ul>
+          <li><a href="#calculators">Battery Calculator</a></li>
+          <li><a href="#calculators">Runtime Calculator</a></li>
+          <li><a href="#calculators">Capacity Calculator</a></li>
+          <li><a href="#calculators">Solar Battery Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guides</h3>
+        <ul>
+          <li><a href="#guides">Ah vs Wh</a></li>
+          <li><a href="#guides">How to calculate runtime</a></li>
+          <li><a href="#guides">Depth of discharge</a></li>
+          <li><a href="#guides">Battery chemistry</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#estimator">Load estimator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bs-footer-bottom">
+      <p>© 2026 BatterySizing.xyz. Calculators are for planning — confirm with a datasheet and a qualified installer. WordPress theme preview.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var calcs = [
+    ['Battery Calculator','All-in-one runtime, capacity & energy calculator.'],
+    ['Battery Runtime Calculator','How many hours will your battery run a given load?'],
+    ['Battery Capacity Calculator','What Ah / Wh capacity do you need for a load and backup time?'],
+    ['Battery Backup Time Calculator','Backup hours for your battery + inverter setup.'],
+    ['Battery Bank Calculator','Series & parallel counts to build any bank.'],
+    ['Solar Battery Calculator','Size the solar battery bank & panel array.'],
+    ['UPS Battery Calculator','Size UPS batteries & runtime for any load.'],
+    ['12V Battery Calculator','Runtime & capacity for any 12V battery.'],
+    ['24V / 48V Battery Calculator','Runtime & capacity for 24V and 48V banks.'],
+    ['LiFePO4 Battery Calculator','Lithium iron phosphate runtime & sizing.'],
+    ['Ah to Wh Calculator','Convert amp-hours to watt-hours.'],
+    ['Wh to Ah Calculator','Convert watt-hours to amp-hours.']
+  ];
+  document.getElementById('calc-grid').innerHTML = calcs.map(function (c) {
+    return '<a class="bs-card bs-calc-card" href="#estimator"><span class="bs-calc-icon">⚡</span><h3>'+c[0]+'</h3><p>'+c[1]+'</p><span class="bs-card-go">Open →</span></a>';
+  }).join('');
+  var guides = [
+    ['6 min','Ah vs Wh: Which Number Actually Matters?','Amp-hours measure charge. Watt-hours measure energy.'],
+    ['7 min','How to Calculate Battery Runtime','The exact formula, a worked example, and the three things that make real runtime shorter.'],
+    ['6 min','How Many Ah Do I Need?','Work backwards from the load and the hours you want.'],
+    ['5 min','Depth of Discharge (DoD), Explained','The reason a 100Ah lithium battery outruns a 100Ah lead-acid.'],
+    ['8 min','Battery Chemistry Comparison','Flooded, AGM, gel, LiFePO4 — which one belongs in your system.'],
+    ['5 min','Battery Formulas Cheat Sheet','Every formula the calculators on this site use, in one place.'],
+    ['9 min','Worked Battery Sizing Examples','Apartment UPS, RV fridge, off-grid cabin, shop backup.']
+  ];
+  document.getElementById('guide-grid').innerHTML = guides.map(function (g) {
+    return '<a class="bs-card bs-guide-card" href="#faq"><span class="bs-guide-meta">'+g[0]+'</span><h3>'+g[1]+'</h3><p>'+g[2]+'</p><span class="bs-card-go">Read →</span></a>';
+  }).join('');
+</script>
+<script src="assets/js/battery-math.js"></script>
+<script src="assets/js/estimator.js"></script>
+<script src="assets/js/whatif.js"></script>
+<script src="assets/js/theme.js"></script>
+</body>
+</html>

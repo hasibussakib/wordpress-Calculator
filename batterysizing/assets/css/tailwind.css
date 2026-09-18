@@ -1,0 +1,9 @@
+/* Compiled-utility placeholder.
+ *
+ * The Batterysizing theme is styled by assets/css/theme.css using the same
+ * tokens as tailwind.config.js (navy / brand / ink, card shadows, float &
+ * charge animations). This file is enqueued first so a future `npx tailwindcss`
+ * build can drop utilities here without changing functions.php.
+ */
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
