@@ -50,8 +50,17 @@ function batterysizing_enqueue_assets() {
 		true
 	);
 
-	// Universal calculator engine — only where a calculator is rendered.
-	if ( batterysizing_page_has_calculator() ) {
+	$is_runtime = is_page( 'battery-runtime-calculator' );
+
+	if ( $is_runtime ) {
+		wp_enqueue_script(
+			'batterysizing-runtime',
+			BATTERYSIZING_URI . '/assets/js/runtime-calculator.js',
+			array( 'batterysizing-math' ),
+			BATTERYSIZING_VERSION,
+			true
+		);
+	} elseif ( batterysizing_page_has_calculator() ) {
 		wp_enqueue_script(
 			'batterysizing-calculator',
 			BATTERYSIZING_URI . '/assets/js/calculator.js',

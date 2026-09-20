@@ -36,13 +36,29 @@ $GLOBALS['batterysizing_current_calc'] = $calc;
 
 <section class="bs-section bs-section-tight">
 	<div class="bs-container">
-		<?php get_template_part( 'template-parts/calculator-widget' ); ?>
+		<?php if ( 'battery-runtime-calculator' === $calc['slug'] ) : ?>
+			<?php get_template_part( 'template-parts/runtime-calculator' ); ?>
+		<?php else : ?>
+			<?php get_template_part( 'template-parts/calculator-widget' ); ?>
+		<?php endif; ?>
 	</div>
 </section>
 
 <section class="bs-section">
 	<div class="bs-container bs-split">
 		<article class="bs-prose">
+			<?php if ( 'battery-runtime-calculator' === $calc['slug'] ) : ?>
+				<h2><?php esc_html_e( 'Worked example', 'batterysizing' ); ?></h2>
+				<p><?php esc_html_e( 'A 12V 100Ah flooded lead-acid battery running a 100W load through an 85% inverter, stopped at 50% depth of discharge (the usual safe figure for this chemistry).', 'batterysizing' ); ?></p>
+				<ol>
+					<li><?php esc_html_e( 'Nominal energy = 12 × 100 = 1,200 Wh', 'batterysizing' ); ?></li>
+					<li><?php esc_html_e( 'Usable energy = 1,200 × 50% = 600 Wh', 'batterysizing' ); ?></li>
+					<li><?php esc_html_e( 'After the inverter = 600 × 85% = 510 Wh', 'batterysizing' ); ?></li>
+					<li><?php esc_html_e( 'Estimated runtime = 510 ÷ 100 = 5.1 hours (5h 06m)', 'batterysizing' ); ?></li>
+				</ol>
+				<p><?php esc_html_e( 'The same 100Ah in LiFePO4 at 90% DoD and 95% efficiency delivers about 10.3 hours — chemistry is not a rounding error. Use Load example on the calculator to drop these flooded numbers in, then switch chemistry to lithium and watch the hours jump.', 'batterysizing' ); ?></p>
+				<p><?php esc_html_e( 'If you needed 8 hours instead of 5.1, the Target runtime mode reverses the same arithmetic: required Ah ≈ (100 × 8) ÷ (12 × 0.50 × 0.85) ≈ 157 Ah, so the next common size is 180 Ah.', 'batterysizing' ); ?></p>
+			<?php endif; ?>
 			<?php echo wp_kses_post( $calc['intro'] ); ?>
 			<?php if ( ! empty( $calc['formula'] ) ) : ?>
 				<h2><?php esc_html_e( 'Formula', 'batterysizing' ); ?></h2>

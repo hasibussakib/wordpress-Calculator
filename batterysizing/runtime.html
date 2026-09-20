@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Battery Runtime Calculator — How Long Will a Battery Last? | BatterySizing.xyz</title>
+  <meta name="description" content="Estimate how long your battery will run a load, then size the Ah you need for a target runtime.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body>
+<a class="bs-skip" href="#main">Skip to content</a>
+<header class="bs-header" id="top">
+  <div class="bs-container bs-header-inner">
+    <a class="bs-logo" href="preview.html">
+      <span class="bs-logo-word">BatterySizing</span><span class="bs-logo-tld">.xyz</span>
+    </a>
+    <nav class="bs-nav">
+      <div class="bs-nav-panel" id="bs-nav-panel">
+        <ul class="bs-menu">
+          <li class="bs-menu-item"><a href="preview.html">Home</a></li>
+          <li class="bs-menu-item"><a href="runtime.html">Runtime calculator</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="bs-page-hero">
+  <div class="bs-container">
+    <nav class="bs-crumbs"><a href="preview.html">Home</a><span>/</span><span>Battery Runtime Calculator</span></nav>
+    <p class="bs-kicker">Free calculator</p>
+    <h1>Battery Runtime Calculator</h1>
+    <p class="bs-lede">How long will my battery run my equipment — and what Ah do I need if it isn’t enough?</p>
+  </div>
+</section>
+<section class="bs-section bs-section-tight">
+  <div class="bs-container">
+    <div class="bs-runtime-root" data-runtime-calc id="bs-runtime-calc">
+    <div class="bs-purpose bs-card bs-card-pad">
+      <p class="bs-kicker">What can I calculate with this tool?</p>
+      <p>Find out how long your battery can power your equipment based on battery capacity, load, and system efficiency. If that runtime is not enough, switch to Target runtime and the same numbers tell you the Ah you actually need.</p>
+    </div>
+    <div class="bs-widget bs-runtime">
+      <div class="bs-tabs" role="tablist">
+        <button type="button" class="bs-tab is-active" data-mode="runtime">How long will it last?<small>Runtime from the battery you have</small></button>
+        <button type="button" class="bs-tab" data-mode="target">I need a target runtime<small>What Ah do I actually need?</small></button>
+      </div>
+      <div class="bs-widget-grid">
+        <form class="bs-widget-form" onsubmit="return false;">
+          <p class="bs-field-group-label">Your battery and load</p>
+          <label class="bs-field">
+            <span class="bs-field-label">Battery voltage</span>
+            <select name="voltage">
+              <option value="12" selected>12 V</option>
+              <option value="24">24 V</option>
+              <option value="36">36 V</option>
+              <option value="48">48 V</option>
+              <option value="12.8">12.8 V (LiFePO4)</option>
+              <option value="25.6">25.6 V (LiFePO4)</option>
+              <option value="51.2">51.2 V (LiFePO4)</option>
+            </select>
+          </label>
+          <label class="bs-field" data-for-mode="runtime">
+            <span class="bs-field-label">Battery capacity</span>
+            <div class="bs-input-unit"><input type="number" name="capacity" value="100" min="0.1" step="any"><span>Ah</span></div>
+          </label>
+          <label class="bs-field">
+            <span class="bs-field-label">Load power</span>
+            <div class="bs-input-unit"><input type="number" name="load" value="100" min="0.1" step="any"><span>W</span></div>
+          </label>
+          <label class="bs-field">
+            <span class="bs-field-label">
+              <span data-for-mode="target" hidden>I need this many hours of backup</span>
+              <span data-for-mode="runtime">Hours I actually need (optional)</span>
+            </span>
+            <div class="bs-input-unit"><input type="number" name="targetHours" value="8" min="0" step="0.1"><span>h</span></div>
+          </label>
+          <button type="button" class="bs-btn bs-btn-ghost bs-adv-toggle" data-advanced-toggle aria-expanded="false"><span data-adv-label>Advanced options</span></button>
+          <div class="bs-advanced" data-advanced hidden>
+            <p class="bs-field-group-label">Accuracy — only what changes the answer</p>
+            <label class="bs-field">
+              <span class="bs-field-label">Battery chemistry</span>
+              <select name="chemistry">
+                <option value="lifepo4" selected>LiFePO4 (lithium)</option>
+                <option value="flooded">Flooded lead-acid</option>
+                <option value="agm">AGM</option>
+                <option value="gel">Gel</option>
+                <option value="other">Other / not sure</option>
+              </select>
+            </label>
+            <label class="bs-field">
+              <span class="bs-field-label">Depth of discharge</span>
+              <div class="bs-slider"><input type="range" name="dod" min="20" max="100" step="1" value="90" data-unit="%"><output>90 %</output></div>
+            </label>
+            <label class="bs-field">
+              <span class="bs-field-label">Inverter / system efficiency</span>
+              <div class="bs-slider"><input type="range" name="efficiency" min="50" max="100" step="1" value="85" data-unit="%"><output>85 %</output></div>
+            </label>
+            <label class="bs-field">
+              <span class="bs-field-label">Reserve (leave unused)</span>
+              <div class="bs-slider"><input type="range" name="reserve" min="0" max="40" step="1" value="0" data-unit="%"><output>0 %</output></div>
+            </label>
+          </div>
+          <div class="bs-form-actions">
+            <button type="button" class="bs-btn bs-btn-ghost" data-example>Load example</button>
+            <button type="button" class="bs-btn bs-btn-ghost" data-reset>Reset</button>
+          </div>
+        </form>
+        <div class="bs-results">
+          <p class="bs-results-kicker">Result</p>
+          <div data-primary class="bs-result-primary">—</div>
+          <p class="bs-assumptions" data-assumptions></p>
+          <ul class="bs-result-list" data-secondary></ul>
+          <p><button type="button" class="bs-btn bs-btn-ghost-light" data-copy>Copy result</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="bs-runtime-panels">
+      <div data-warnings hidden></div>
+      <div class="bs-card bs-card-pad">
+        <h2>What this result means</h2>
+        <p data-meaning></p>
+        <h3>What you can do next</h3>
+        <ul data-next></ul>
+      </div>
+      <div class="bs-card bs-card-pad">
+        <h2>What if the load changes?</h2>
+        <p class="bs-muted">Same battery, different watts. Runtime falls as the load rises — this is the relationship a single number hides.</p>
+        <div data-whatif></div>
+      </div>
+      <div class="bs-card bs-card-pad">
+        <h2>Theoretical vs practical</h2>
+        <div class="bs-vs">
+          <div><span>Theoretical / label</span><strong data-nominal-vs>—</strong><small>V × Ah ÷ load, as if you could use every watt-hour.</small></div>
+          <div><span>Estimated practical</span><strong data-practical-vs>—</strong><small>After DoD, reserve, inverter losses, and Peukert on lead-acid.</small></div>
+        </div>
+        <p class="bs-muted">This is an estimate, not a prediction. Manufacturer limits always win.</p>
+      </div>
+      <div class="bs-card bs-card-pad">
+        <h2>How we calculated this</h2>
+        <div class="bs-work-wrap">
+          <table class="bs-work">
+            <thead><tr><th>Step</th><th>Formula</th><th>Values</th><th>Result</th></tr></thead>
+            <tbody data-work></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bs-section">
+  <div class="bs-container bs-prose">
+    <h2>Worked example</h2>
+    <p>A 12V 100Ah flooded lead-acid battery running a 100W load through an 85% inverter, stopped at 50% depth of discharge.</p>
+    <ol>
+      <li>Nominal energy = 12 × 100 = 1,200 Wh</li>
+      <li>Usable energy = 1,200 × 50% = 600 Wh</li>
+      <li>After the inverter = 600 × 85% = 510 Wh</li>
+      <li>Estimated runtime = 510 ÷ 100 = 5.1 hours (5h 06m)</li>
+    </ol>
+    <p>Need 8 hours instead? Target runtime reverses the same arithmetic: required Ah ≈ 157 Ah → next common size 180 Ah. Click <strong>Load example</strong> to drop these numbers into the calculator.</p>
+  </div>
+</section>
+</main>
+<footer class="bs-footer"><div class="bs-container"><div class="bs-footer-bottom"><p>© 2026 BatterySizing.xyz — estimates for planning, not a datasheet.</p></div></div></footer>
+<script src="assets/js/battery-math.js"></script>
+<script src="assets/js/runtime-calculator.js"></script>
+<script src="assets/js/theme.js"></script>
+</body>
+</html>
